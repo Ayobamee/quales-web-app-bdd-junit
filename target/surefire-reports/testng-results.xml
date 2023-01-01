@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-04-22T18:01:32Z" name="MyShopTestSuite" finished-at="2021-04-22T18:02:27Z" duration-ms="54853">
+    <groups>
+    </groups>
+    <test started-at="2021-04-22T18:01:32Z" name="Test" finished-at="2021-04-22T18:02:27Z" duration-ms="54853">
+      <class name="org.spaces.realms">
+        <test-method signature="realmsTest()[pri:0, instance:org.spaces.realms@2dde1bff]" started-at="2021-04-22T19:02:01Z" name="realmsTest" finished-at="2021-04-22T19:02:08Z" duration-ms="7072" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- realmsTest -->
+      </class> <!-- org.spaces.realms -->
+      <class name="org.spaces.generateOtp">
+        <test-method signature="generateOtpTest()[pri:0, instance:org.spaces.generateOtp@550ee7e5]" started-at="2021-04-22T19:02:15Z" name="generateOtpTest" finished-at="2021-04-22T19:02:21Z" duration-ms="6120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateOtpTest -->
+      </class> <!-- org.spaces.generateOtp -->
+      <class name="org.spaces.dashboard">
+        <test-method signature="dashboardTest()[pri:0, instance:org.spaces.dashboard@22e357dc]" started-at="2021-04-22T19:01:41Z" name="dashboardTest" finished-at="2021-04-22T19:01:48Z" duration-ms="7291" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dashboardTest -->
+      </class> <!-- org.spaces.dashboard -->
+      <class name="org.spaces.login">
+        <test-method signature="loginTest()[pri:0, instance:org.spaces.login@1a4013]" started-at="2021-04-22T19:01:32Z" name="loginTest" finished-at="2021-04-22T19:01:41Z" duration-ms="8539" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+      </class> <!-- org.spaces.login -->
+      <class name="org.spaces.trivia">
+        <test-method signature="triviaTest()[pri:0, instance:org.spaces.trivia@5f9b2141]" started-at="2021-04-22T19:02:21Z" name="triviaTest" finished-at="2021-04-22T19:02:27Z" duration-ms="5850" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- triviaTest -->
+      </class> <!-- org.spaces.trivia -->
+      <class name="org.spaces.users">
+        <test-method signature="usersTest()[pri:0, instance:org.spaces.users@10163d6]" started-at="2021-04-22T19:01:55Z" name="usersTest" finished-at="2021-04-22T19:02:01Z" duration-ms="6476" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- usersTest -->
+      </class> <!-- org.spaces.users -->
+      <class name="org.spaces.agentManagement">
+        <test-method signature="agentManagementTest()[pri:0, instance:org.spaces.agentManagement@49912c99]" started-at="2021-04-22T19:01:48Z" name="agentManagementTest" finished-at="2021-04-22T19:01:55Z" duration-ms="6411" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- agentManagementTest -->
+      </class> <!-- org.spaces.agentManagement -->
+      <class name="org.spaces.adminUsers">
+        <test-method signature="adminUsersTest()[pri:0, instance:org.spaces.adminUsers@15bbf42f]" started-at="2021-04-22T19:02:08Z" name="adminUsersTest" finished-at="2021-04-22T19:02:15Z" duration-ms="7075" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminUsersTest -->
+      </class> <!-- org.spaces.adminUsers -->
+    </test> <!-- Test -->
+  </suite> <!-- MyShopTestSuite -->
+</testng-results>
