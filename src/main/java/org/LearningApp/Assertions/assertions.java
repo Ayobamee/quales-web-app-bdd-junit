@@ -19,7 +19,7 @@ public class assertions {
 
     public void assertLandingPageView() {
 
-        String url = "http://tawdry-rule.surge.sh/courses";
+        String url = "https://academy.quales.tech/courses";
         String currenturl = driver.getCurrentUrl();
         assertEquals(url, currenturl);
         System.out.println("Page url is displayed");

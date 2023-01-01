@@ -11,18 +11,22 @@ import java.io.IOException;
 
 public class RegressionTestSuite extends signIn {
 
+
     @BeforeTest
     public void SignIn() throws InterruptedException, IOException {
+
+
         // Load app.
         driver = signIn();
     }
 
-     //Test that user can access the Quales App landing page successfully.
+
+    //Test that user can access the Quales App landing page successfully.
     @Test
     public void authloginTest() throws InterruptedException, IOException {
 
         assertions assertObj = new assertions(driver);
-        // Assert landing page view
+         //Assert landing page view
         assertObj.assertLandingPageView();
 
     }

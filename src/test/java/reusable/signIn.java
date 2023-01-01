@@ -40,7 +40,7 @@ public class signIn {
 
         // Open the Quales App home page.
         // driver.get(prop.getProperty("URL"));
-        driver.get("http://tawdry-rule.surge.sh/");
+        driver.get("https://academy.quales.tech");
         driver.findElement(By.xpath("//button[normalize-space()='Sign In']")).click();
         driver.findElement(By.cssSelector("input[data-testid=EmailAddress]")).sendKeys("ay@mail.com");
         driver.findElement(By.cssSelector("input[data-testid=Password]")).sendKeys("pass1234");
