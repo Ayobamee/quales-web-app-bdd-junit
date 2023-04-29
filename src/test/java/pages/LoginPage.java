@@ -6,6 +6,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 public class LoginPage {
 
     private static WebDriver driver;
@@ -40,6 +45,16 @@ public class LoginPage {
 
         driver.findElement(loginBtn).click();
 
+    }
+
+    public void login() throws IOException {
+        Properties prop = new Properties();
+        FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
+        prop.load(fis);
+        driver.findElement(signInBtn).click();
+        driver.findElement(emailField).sendKeys(prop.getProperty("username"));
+        driver.findElement(passwordField).sendKeys(prop.getProperty("password"));
+        driver.findElement(loginBtn).click();
     }
 
 }

@@ -4,9 +4,11 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
+import pages.CoursePage;
 import reusable.loadApp;
 
 import java.io.FileInputStream;
@@ -28,33 +30,27 @@ public class CreateCourse extends loadApp {
     public void i_am_on_the_dashboard_page() throws IOException, InterruptedException {
 
         driver = loadApp();
-        prop.load(fis);
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.clickSignInButton();
-        loginPage.enterUsername(prop.getProperty("username"));
-        loginPage.enterPassword(prop.getProperty("password"));
-        loginPage.clickLoginButton();
+        loginPage.login();
+
     }
 
-//    @When("I enter valid credentials")
-//    public void i_enter_valid_credentials() throws IOException {
-//
-//        prop.load(fis);
-//        LoginPage loginPage = new LoginPage(driver);
-//        loginPage.clickSignInButton();
-//        loginPage.enterUsername(prop.getProperty("username"));
-//        loginPage.enterPassword(prop.getProperty("password"));
-//    }
-//
-//    @When("click the login button")
-//    public void click_the_login_button() {
-//
-//
-//        LoginPage loginPage = new LoginPage(driver);
-//        loginPage.clickLoginButton();
-//
-//
-//    }
+    @When("I choose the desktop view port")
+    public void i_choose_the_desktop_view_port() throws IOException {
+        CoursePage coursePage = new CoursePage(driver);
+        coursePage.clickAddCourse();
+        Dimension size = new Dimension(1536, 960);
+        driver.manage().window().setSize(size);
+
+    }
+
+    @When("I input my course details")
+    public void i_input_my_course_details() {
+        CoursePage coursePage = new CoursePage(driver);
+        coursePage.enterCourseTitle();
+
+
+    }
 //
 //    @Then("I should be redirected to the dashboard page")
 //    public void i_should_be_redirected_to_the_dashboard_page() {
