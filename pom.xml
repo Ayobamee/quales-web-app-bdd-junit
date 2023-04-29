@@ -3,11 +3,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.edutech</groupId>
-  <artifactId>edutech</artifactId>
+  <groupId>org.quales-web-app</groupId>
+  <artifactId>quales-App</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>nova</name>
+  <name>quales-web-app</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -17,6 +17,20 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>6.10.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>6.10.3</version>
+      <scope>test</scope>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>

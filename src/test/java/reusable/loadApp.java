@@ -17,7 +17,7 @@ public class loadApp {
     public WebDriver driver;
     public Properties prop;
 
-    public WebDriver signIn() throws IOException, InterruptedException {
+    public WebDriver loadApp() throws IOException, InterruptedException {
         prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//utilities//datadriven.properties");
         prop.load(fis);
@@ -44,8 +44,8 @@ public class loadApp {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-        // Open the alosim App home page.
-        driver.get("https://www.preprod.alosim.com/login");
+        // Open the quales app home page.
+        driver.get("https://academy.quales.tech");
 
         return driver;
     }

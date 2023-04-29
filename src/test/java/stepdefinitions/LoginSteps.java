@@ -15,14 +15,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class LoginStepDefinitions extends loadApp {
+public class LoginSteps extends loadApp {
 
     private WebDriver driver;
     private LoginPage loginPage;
     Properties prop = new Properties();
     FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
 
-    public LoginStepDefinitions() throws FileNotFoundException {
+    public LoginSteps() throws FileNotFoundException {
     }
 
     @Given("I am on the login page")
@@ -36,6 +36,7 @@ public class LoginStepDefinitions extends loadApp {
 
         prop.load(fis);
         LoginPage loginPage = new LoginPage(driver);
+        loginPage.clickSignInButton();
         loginPage.enterUsername(prop.getProperty("username"));
         loginPage.enterPassword(prop.getProperty("password"));
     }
@@ -53,7 +54,10 @@ public class LoginStepDefinitions extends loadApp {
     @Then("I should be redirected to the dashboard page")
     public void i_should_be_redirected_to_the_dashboard_page() {
         DashboardPage dashboardPage = new DashboardPage(driver);
-        dashboardPage.isDisplayed();
+        dashboardPage.verifyLandingPageView();
+        dashboardPage.verifyLoginAlertDisplay();
+        driver.quit();
+
     }
 
 }

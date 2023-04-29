@@ -1,37 +1,40 @@
 package pages;
 
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
-public class LoginPage {
+
+public class DashboardPage {
 
     private static WebDriver driver;
-    private By usernameField = By.name("email");
-    private By passwordField = By.name("password");
+    private static By loginAlert = By.xpath("//div[contains(text(),'Login Successfull')]");
 
-    private By loginBtn = By.xpath("//button[normalize-space()='Log In']");
+    public boolean checkLoginAlertDisplay() {
+        driver.findElement(loginAlert);
+        return true;
+    }
 
 
-    public LoginPage(WebDriver driver) {
+    public DashboardPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
+
+    public void verifyLandingPageView() {
+
+        String url = "https://academy.quales.tech/courses";
+        String currenturl = driver.getCurrentUrl();
+        assertEquals(url, currenturl);
+        System.out.println("Page url is displayed");
+
     }
 
-    public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
-    }
+    public void verifyLoginAlertDisplay() {
+        assertTrue(checkLoginAlertDisplay());
 
-    public void clickLoginButton() {
-        WebElement element = driver.findElement(loginBtn);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", element);
-        element.click();
     }
-
 }
+
+
