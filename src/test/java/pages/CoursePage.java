@@ -15,6 +15,7 @@ public class CoursePage {
 
     private static  By courseDescriptionInputField = By.xpath("/html[1]/body[1]/div[1]/div[2]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/textarea[1]");
 
+    private static By selectCategoryDropdown = By.xpath("//div[@id='demo-simple-select']");
 
     public CoursePage(WebDriver driver) {
         this.driver = driver;
@@ -31,6 +32,10 @@ public class CoursePage {
 
     public void enterCourseDescription() {
         driver.findElement(courseDescriptionInputField).sendKeys("Selenium Description");
+    }
+
+    public void chooseCourseCategory() {
+        driver.findElement(selectCategoryDropdown).click();
     }
 
 
