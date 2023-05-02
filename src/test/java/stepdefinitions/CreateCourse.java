@@ -47,11 +47,7 @@ public class CreateCourse extends loadApp {
     @When("I input my course details")
     public void i_input_my_course_details() {
         CoursePage coursePage = new CoursePage(driver);
-        coursePage.enterCourseTitle();
-        coursePage.enterCourseDescription();
-        coursePage.chooseCourseCategory();
-        coursePage.chooseQualityAssuranceModule();
-        coursePage.chooseOffline();
+        coursePage.fillCourseCreationForm();
 
 
     }

@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
@@ -21,6 +23,12 @@ public class CoursePage {
 
     private static  By location = By.xpath("//input[@value='offline']");
 
+    private static  By courseLocation = By.xpath("/html[1]/body[1]/div[1]/div[2]/main[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/input[1]");
+
+    private static By secondAddCourseBtn = By.xpath("(//button[normalize-space()='+ Add Course'])[1]");
+
+    private static By address = By.xpath("/html[1]/body[1]/div[1]/div[2]/main[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/input[1]");
+
     public CoursePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -30,25 +38,26 @@ public class CoursePage {
         driver.findElement(addCourseBtn).click();
     }
 
-    public void enterCourseTitle() {
+
+    public void fillCourseCreationForm() {
         driver.findElement(courseTitleInputField).sendKeys("Selenium test");
-    }
-
-    public void enterCourseDescription() {
         driver.findElement(courseDescriptionInputField).sendKeys("Selenium Description");
-    }
-
-    public void chooseCourseCategory() {
         driver.findElement(selectCategoryDropdown).click();
-    }
-
-    public void chooseQualityAssuranceModule() {
         driver.findElement(qualityAssuranceModule).click();
+        driver.findElement(location).click();
+        WebElement addressElement = driver.findElement( By.xpath("/html[1]/body[1]/div[1]/div[2]/main[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/input[1]"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", addressElement);
+        addressElement.sendKeys("Quales address");
+        driver.findElement(secondAddCourseBtn).click();
+
+
+
+
     }
 
-    public void chooseOffline() {
-        driver.findElement(location).click();
-    }
+
+
 
 
 }
