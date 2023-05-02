@@ -19,6 +19,8 @@ public class CoursePage {
 
     private static  By qualityAssuranceModule = By.xpath("//li[normalize-space()='Quality Assurance']");
 
+    private static  By location = By.xpath("//input[@value='offline']");
+
     public CoursePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -42,6 +44,10 @@ public class CoursePage {
 
     public void chooseQualityAssuranceModule() {
         driver.findElement(qualityAssuranceModule).click();
+    }
+
+    public void chooseOffline() {
+        driver.findElement(location).click();
     }
 
 

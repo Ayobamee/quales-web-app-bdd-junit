@@ -51,6 +51,7 @@ public class CreateCourse extends loadApp {
         coursePage.enterCourseDescription();
         coursePage.chooseCourseCategory();
         coursePage.chooseQualityAssuranceModule();
+        coursePage.chooseOffline();
 
 
     }
