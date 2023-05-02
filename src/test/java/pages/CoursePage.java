@@ -11,7 +11,9 @@ public class CoursePage {
 
     private static WebDriver driver;
     private static By addCourseBtn = By.xpath("//button[normalize-space()='Add Course']");
-    private static By courseInputField = By.xpath("//input[@data-testid='Title*']");
+    private static By courseTitleInputField = By.xpath("//input[@data-testid='Title*']");
+
+    private static  By courseDescriptionInputField = By.xpath("/html[1]/body[1]/div[1]/div[2]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/textarea[1]");
 
 
     public CoursePage(WebDriver driver) {
@@ -24,7 +26,11 @@ public class CoursePage {
     }
 
     public void enterCourseTitle() {
-        driver.findElement(courseInputField).sendKeys("Selenium test");
+        driver.findElement(courseTitleInputField).sendKeys("Selenium test");
+    }
+
+    public void enterCourseDescription() {
+        driver.findElement(courseDescriptionInputField).sendKeys("Selenium Description");
     }
 
 

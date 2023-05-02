@@ -48,6 +48,7 @@ public class CreateCourse extends loadApp {
     public void i_input_my_course_details() {
         CoursePage coursePage = new CoursePage(driver);
         coursePage.enterCourseTitle();
+        coursePage.enterCourseDescription();
 
 
     }
