@@ -50,6 +50,7 @@ public class CreateCourse extends loadApp {
         coursePage.enterCourseTitle();
         coursePage.enterCourseDescription();
         coursePage.chooseCourseCategory();
+        coursePage.chooseQualityAssuranceModule();
 
 
     }

@@ -17,6 +17,8 @@ public class CoursePage {
 
     private static By selectCategoryDropdown = By.xpath("//div[@id='demo-simple-select']");
 
+    private static  By qualityAssuranceModule = By.xpath("//li[normalize-space()='Quality Assurance']");
+
     public CoursePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -36,6 +38,10 @@ public class CoursePage {
 
     public void chooseCourseCategory() {
         driver.findElement(selectCategoryDropdown).click();
+    }
+
+    public void chooseQualityAssuranceModule() {
+        driver.findElement(qualityAssuranceModule).click();
     }
 
 
