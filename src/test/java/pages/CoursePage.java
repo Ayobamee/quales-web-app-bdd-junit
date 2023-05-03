@@ -29,6 +29,8 @@ public class CoursePage {
 
     private static By address = By.xpath("/html[1]/body[1]/div[1]/div[2]/main[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/input[1]");
 
+    private static By courseCreationModal = By.xpath("//div[contains(text(),'Course created successfully')]");
+
     public CoursePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -51,8 +53,15 @@ public class CoursePage {
         addressElement.sendKeys("Quales address");
         driver.findElement(secondAddCourseBtn).click();
 
+    }
 
+    public boolean checkCourseCreation() {
+        driver.findElement(courseCreationModal);
+        return true;
+    }
 
+    public void verifyCourseIsCreated() {
+        assertTrue(checkCourseCreation());
 
     }
 

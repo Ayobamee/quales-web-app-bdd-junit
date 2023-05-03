@@ -48,17 +48,12 @@ public class CreateCourse extends loadApp {
     public void i_input_my_course_details() {
         CoursePage coursePage = new CoursePage(driver);
         coursePage.fillCourseCreationForm();
-
-
     }
-//
-//    @Then("I should be redirected to the dashboard page")
-//    public void i_should_be_redirected_to_the_dashboard_page() {
-//        DashboardPage dashboardPage = new DashboardPage(driver);
-//        dashboardPage.verifyLandingPageView();
-//        dashboardPage.verifyLoginAlertDisplay();
-//
-//    }
 
+    @Then("My course should be created successfully")
+    public void my_course_should_be_created_successfully() {
+        CoursePage coursePage = new CoursePage(driver);
+        coursePage.verifyCourseIsCreated();
+    }
 }
 

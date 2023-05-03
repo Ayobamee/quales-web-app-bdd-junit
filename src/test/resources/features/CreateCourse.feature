@@ -7,4 +7,4 @@ Feature: Course Creation Functionality
     Given I am on the dashboard page
     When I choose the desktop view port
     And I input my course details
-#    Then I should be redirected to the dashboard page
+    Then My course should be created successfully
