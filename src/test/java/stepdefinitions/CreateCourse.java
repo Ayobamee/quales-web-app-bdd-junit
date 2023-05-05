@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,8 +27,8 @@ public class CreateCourse extends loadApp {
     public CreateCourse() throws FileNotFoundException {
     }
 
-    @Given("I am on the dashboard page")
-    public void i_am_on_the_dashboard_page() throws IOException, InterruptedException {
+    @Given("I am present on the dashboard page")
+    public void i_am_present_on_the_dashboard_page() throws IOException, InterruptedException {
 
         driver = loadApp();
         LoginPage loginPage = new LoginPage(driver);
@@ -35,8 +36,8 @@ public class CreateCourse extends loadApp {
 
     }
 
-    @When("I choose the desktop view port")
-    public void i_choose_the_desktop_view_port() throws IOException {
+    @When("I select the desktop view port")
+    public void i_select_the_desktop_view_port() throws IOException {
         CoursePage coursePage = new CoursePage(driver);
         coursePage.clickAddCourse();
         Dimension size = new Dimension(1536, 960);
@@ -44,7 +45,7 @@ public class CreateCourse extends loadApp {
 
     }
 
-    @When("I input my course details")
+    @And("I input my course details")
     public void i_input_my_course_details() {
         CoursePage coursePage = new CoursePage(driver);
         coursePage.fillCourseCreationForm();

@@ -4,7 +4,7 @@ Feature: Course Creation Functionality
   So that I can view my courses
 
   Scenario: Create course
-    Given I am on the dashboard page
-    When I choose the desktop view port
+    Given I am present on the dashboard page
+    When I select the desktop view port
     And I input my course details
     Then My course should be created successfully

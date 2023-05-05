@@ -1,9 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import static org.junit.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
@@ -30,6 +27,12 @@ public class CoursePage {
     private static By address = By.xpath("/html[1]/body[1]/div[1]/div[2]/main[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/input[1]");
 
     private static By courseCreationModal = By.xpath("//div[contains(text(),'Course created successfully')]");
+
+    private static By editCourseModal = By.xpath("//div[@class='MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-1cg8cx6']");
+
+    private static By updateCourse = By.xpath("//button[normalize-space()='Edit']");
+
+    private static By updateCourseButton = By.xpath("//button[normalize-space()='Update Course']");
 
     public CoursePage(WebDriver driver) {
         this.driver = driver;
@@ -66,7 +69,18 @@ public class CoursePage {
     }
 
 
+    public void editCourse() {
+//        driver.findElement(By.xpath("//div[@class='MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-1cg8cx6']")).click();
 
+        driver.findElement(editCourseModal).click();
+        Dimension size = new Dimension(1536, 960);
+        driver.manage().window().setSize(size);
+        driver.findElement(updateCourse).click();
+        WebElement updateCourseElement = driver.findElement(updateCourseButton);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", updateCourseElement);
+        updateCourseElement.click();
+    }
 
 
 }
