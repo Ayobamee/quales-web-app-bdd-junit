@@ -46,8 +46,11 @@ public class loadApp {
 
         // Open the quales app home page.
         driver.get("https://academy.quales.tech");
+        System.out.println("The home page has been opened");
 
         return driver;
     }
+
+
 
 }

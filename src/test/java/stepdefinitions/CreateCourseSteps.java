@@ -7,7 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import pages.DashboardPage;
 import pages.LoginPage;
 import pages.CoursePage;
 import reusable.loadApp;
@@ -17,14 +16,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class CreateCourse extends loadApp {
+public class CreateCourseSteps extends loadApp {
 
     private WebDriver driver;
     private LoginPage loginPage;
     Properties prop = new Properties();
     FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
 
-    public CreateCourse() throws FileNotFoundException {
+    public CreateCourseSteps() throws FileNotFoundException {
     }
 
     @Given("I am present on the dashboard page")
@@ -53,8 +52,14 @@ public class CreateCourse extends loadApp {
 
     @Then("My course should be created successfully")
     public void my_course_should_be_created_successfully() {
+        LoginPage loginPage = new LoginPage(driver);
         CoursePage coursePage = new CoursePage(driver);
         coursePage.verifyCourseIsCreated();
+        loginPage.closeBrowser();
     }
+
+
+
+
 }
 

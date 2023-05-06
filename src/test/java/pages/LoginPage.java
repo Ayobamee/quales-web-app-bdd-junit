@@ -44,6 +44,7 @@ public class LoginPage {
     public void clickLoginButton() {
 
         driver.findElement(loginBtn).click();
+        System.out.println("Login is successful");
 
     }
 
@@ -55,6 +56,14 @@ public class LoginPage {
         driver.findElement(emailField).sendKeys(prop.getProperty("username"));
         driver.findElement(passwordField).sendKeys(prop.getProperty("password"));
         driver.findElement(loginBtn).click();
+        System.out.println("Login is successful");
+    }
+
+
+    public void closeBrowser() {
+
+        driver.quit();
+        System.out.println("Browser session has been closed");
     }
 
 }

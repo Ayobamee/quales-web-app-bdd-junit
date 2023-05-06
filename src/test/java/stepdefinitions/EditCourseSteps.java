@@ -1,11 +1,9 @@
 package stepdefinitions;
 
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import pages.CoursePage;
 import pages.LoginPage;
@@ -16,14 +14,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class EditCourse extends loadApp {
+public class EditCourseSteps extends loadApp {
 
     private WebDriver driver;
     private LoginPage loginPage;
     Properties prop = new Properties();
     FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
 
-    public EditCourse() throws FileNotFoundException {
+    public EditCourseSteps() throws FileNotFoundException {
     }
 
     @Given("I am on the dashboard page")
@@ -40,10 +38,12 @@ public class EditCourse extends loadApp {
         coursePage.editCourse();
     }
 
-//    @Then("My course should be modified successfully")
-//    public void my_course_should_be_modified_successfully() {
-//        CoursePage coursePage = new CoursePage(driver);
-//        coursePage.verifyCourseIsCreated();
-//    }
+    @Then("My course should be modified successfully")
+    public void my_course_should_be_modified_successfully() {
+        LoginPage loginPage = new LoginPage(driver);
+        CoursePage coursePage = new CoursePage(driver);
+        coursePage.verifyCourseisEdited();
+        loginPage.closeBrowser();
+    }
 }
 

@@ -4,6 +4,7 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 
 import pages.DashboardPage;
@@ -53,12 +54,16 @@ public class LoginSteps extends loadApp {
 
     @Then("I should be redirected to the dashboard page")
     public void i_should_be_redirected_to_the_dashboard_page() {
+        LoginPage loginPage = new LoginPage(driver);
         DashboardPage dashboardPage = new DashboardPage(driver);
         dashboardPage.verifyLandingPageView();
         dashboardPage.verifyLoginAlertDisplay();
-        driver.quit();
+        loginPage.closeBrowser();
 
     }
+
+
+
 
 }
 
