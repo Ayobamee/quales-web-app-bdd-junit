@@ -1,0 +1,24 @@
+name: Selenium Java BDD Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+
+    - name: Install Maven
+      run: sudo apt-get install maven -y
+
+    - name: Run Selenium tests
+      run: mvn clean verify -P selenium-tests
+      env:
+        BROWSER: chrome
