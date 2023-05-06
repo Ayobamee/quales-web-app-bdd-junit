@@ -1,10 +1,9 @@
-name: Selenium Java BDD Tests
+name: Selenium JUnit Cucumber Tests
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   test:
@@ -18,11 +17,20 @@ jobs:
       with:
         java-version: 1.8
 
-    - name: Install Maven
-      run: sudo apt-get install -y maven
+    - name: Install Chrome browser
+      run: sudo apt-get update && sudo apt-get install -y google-chrome-stable
 
-    - name: Build with Maven
-      run: mvn clean install
+    - name: Download and install ChromeDriver
+      run: |
+        LATEST_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        curl -sS -o chromedriver.zip https://chromedriver.storage.googleapis.com/$LATEST_VERSION/chromedriver_linux64.zip
+        unzip chromedriver.zip
+        chmod +x chromedriver
+        sudo mv chromedriver /usr/local/bin/
 
-    - name: Run Selenium tests
-      run: mvn verify
+    - name: Install dependencies and run tests
+      run: |
+        sudo apt-get install -y maven
+        mvn clean test -Dtest=TestRunner.java
+      env:
+        CHROME_DRIVER_PATH: /usr/local/bin/chromedriver
