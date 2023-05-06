@@ -49,7 +49,6 @@ public class LoginSteps extends loadApp {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickLoginButton();
 
-
     }
 
     @Then("I should be redirected to the dashboard page")
