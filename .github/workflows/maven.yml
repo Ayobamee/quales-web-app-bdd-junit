@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: 1.8
-        distribution: 'corretto'
+        distribution: 'adopt'
 
     - name: Install Chrome browser
       run: sudo apt-get update && sudo apt-get install -y google-chrome-stable
