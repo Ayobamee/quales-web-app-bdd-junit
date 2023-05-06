@@ -1,24 +1,31 @@
-name: Selenium Java BDD Test
+name: Selenium with Java BDD Tests
 
 on: [push]
 
 jobs:
-  build:
+  selenium-java-bdd-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
+    - uses: actions/checkout@v2
     - name: Setup Java
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-
-    - name: Install Maven
-      run: sudo apt-get install maven -y
-
-    - name: Run Selenium tests
-      run: mvn clean verify -P selenium-tests
-      env:
-        BROWSER: chrome
+    - name: Install dependencies
+      run: |
+        sudo apt-get update && sudo apt-get -y install chromium-browser
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+        sudo apt-get update && sudo apt-get -y install google-chrome-stable
+        sudo apt-get -y install xvfb
+        sudo apt-get -y install unzip
+        wget https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin
+        sudo chmod +x /usr/local/bin/chromedriver
+    - name: Run Selenium with Java BDD Tests
+      run: |
+        export DISPLAY=:99
+        Xvfb :99 -screen 0 1024x768x16 &
+        mvn clean test
