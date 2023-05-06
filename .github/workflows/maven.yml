@@ -32,6 +32,6 @@ jobs:
     - name: Install dependencies and run tests
       run: |
         sudo apt-get install -y maven
-        mvn clean test -Dtest=com.example.TestRunner
+        mvn clean test -Dtest=TestRunners.TestRunner
       env:
         CHROME_DRIVER_PATH: /usr/local/bin/chromedriver
