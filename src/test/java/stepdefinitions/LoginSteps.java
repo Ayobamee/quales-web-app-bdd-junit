@@ -45,7 +45,6 @@ public class LoginSteps extends loadApp {
     @When("click the login button")
     public void click_the_login_button() {
 
-
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickLoginButton();
 
