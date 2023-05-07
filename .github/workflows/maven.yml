@@ -18,7 +18,7 @@ jobs:
         java-version: 11
         distribution: 'adopt'
 
- - name: Set up ChromeDriver
+    - name: Set up ChromeDriver
       run: |
         CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
         curl -L -O "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
