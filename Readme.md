@@ -1,17 +1,20 @@
-This framework consists of five major parts to it.
-The Page objects, Actions , Assertions, Regression Test suite and load Browser
-To avoid test failures as a result of D.O.M elements been absent, i created an abstract component (under java > org.liveet > AbstractComponents)file under the java folder
-The Page Components for each D.O.M element can be found in ( java > org.liveet > PageComponents)
-Also the framework contains a master list created for all Page Objects in the Page Objects folder ( java > org.liveet > PageObjects)were all D.O.M elements are stored.
-The actions file ( java > org.liveet > Actions) imports the page objects to perform tests to be automated, they are sstored in different methods depending on tests to be carried out.
-These are also imported in the Regression Test suite file ( test > org.TestSuite) for use.
-The assertions are also stored in the Assertion folder in different methods.
-These are also imported in the Regression Test suite file ( test > org.TestSuite) for use.
-The Load browser file is where the test starts up the broswer before test execution occurs, the base url is also kept here.
-
-Happy Testing!!!!!
+The framework consists of the following:
+1. .github file which represents a set of actions for contious testing using github's servers on push to the main branch.
+2. src/test/java/features contains all the features files for this bdd framework
+3. src/test/java/pages contains all the page objects.
+4. src/test/java/resources has the testdata properties with username , passwords etc.
+5. src/test/java/stepdefinitions has all test steps written using the Gherkin syntax methods.
+6. src/test/java/TestRunners contains the config for the test runner using junit.
+7. src/test/java/utils/driverUtils contains the driver Utils where the browser engine is started
+8. src/test/java/utils/filereader contains the file properties method for reading the test data stored in item 4 above.
+9. src/test/java/utils/reusableMethods contains reusable java functions used through out the test.
 
 
-
-
-Author : Ayobami 
+To run this on your local.
+1. Install java preferable jdk 11 and above.
+2. Set java as an environment variable.
+3.  Install maven
+4. Set maven as an environment variable.
+5. Clone the repo to your local.
+6. Open with cloned project using your preferred IDE.
+7. Wait for the dependencies to be downloaded on your local when the pom.xml updates.
