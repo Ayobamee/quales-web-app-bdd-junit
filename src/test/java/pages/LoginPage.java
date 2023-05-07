@@ -50,7 +50,7 @@ public class LoginPage {
 
     public void login() throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
+        FileInputStream fis = new FileInputStream("src/test/java/resources/testdata.properties");
         prop.load(fis);
         driver.findElement(signInBtn).click();
         driver.findElement(emailField).sendKeys(prop.getProperty("username"));

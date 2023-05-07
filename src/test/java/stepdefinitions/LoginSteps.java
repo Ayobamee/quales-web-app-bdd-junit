@@ -21,7 +21,7 @@ public class LoginSteps extends loadApp {
     private WebDriver driver;
     private LoginPage loginPage;
     Properties prop = new Properties();
-    FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
+    FileInputStream fis = new FileInputStream("src/test/java/resources/testdata.properties");
 
     public LoginSteps() throws FileNotFoundException {
     }

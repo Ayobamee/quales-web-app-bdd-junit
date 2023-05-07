@@ -18,11 +18,7 @@ public class EditCourseSteps extends loadApp {
 
     private WebDriver driver;
     private LoginPage loginPage;
-    Properties prop = new Properties();
-    FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
 
-    public EditCourseSteps() throws FileNotFoundException {
-    }
 
     @Given("I am on the dashboard page")
     public void i_am_on_the_dashboard_page() throws IOException, InterruptedException {

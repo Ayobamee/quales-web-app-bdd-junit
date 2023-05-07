@@ -20,11 +20,7 @@ public class CreateCourseSteps extends loadApp {
 
     private WebDriver driver;
     private LoginPage loginPage;
-    Properties prop = new Properties();
-    FileInputStream fis = new FileInputStream("src/test/resources/testdata.properties");
 
-    public CreateCourseSteps() throws FileNotFoundException {
-    }
 
     @Given("I am present on the dashboard page")
     public void i_am_present_on_the_dashboard_page() throws IOException, InterruptedException {
