@@ -7,12 +7,9 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pages.CoursePage;
 import pages.LoginPage;
-import reusable.loadApp;
+import utils.driverUtils.loadApp;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
 
 public class EditCourseSteps extends loadApp {
 

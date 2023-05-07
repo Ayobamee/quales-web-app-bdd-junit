@@ -9,12 +9,9 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 import pages.CoursePage;
-import reusable.loadApp;
+import utils.driverUtils.loadApp;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
 
 public class CreateCourseSteps extends loadApp {
 
