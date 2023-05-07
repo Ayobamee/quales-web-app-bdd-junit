@@ -1,4 +1,4 @@
-The framework consists of the following:
+The framework consists of the following components:
 1. .github file which represents a set of actions for contious testing using github's servers on push to the main branch.
 2. src/test/java/features contains all the features files for this bdd framework
 3. src/test/java/pages contains all the page objects.
