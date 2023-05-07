@@ -2,14 +2,14 @@ package pages;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import org.openqa.selenium.WebDriver;
+
+import utils.filereader.readProperties;
+
+
 import java.io.IOException;
-import java.util.Properties;
+
 
 public class LoginPage {
 
@@ -49,12 +49,10 @@ public class LoginPage {
     }
 
     public void login() throws IOException {
-        Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/test/java/resources/testdata.properties");
-        prop.load(fis);
+        readProperties readTestData = new readProperties();
         driver.findElement(signInBtn).click();
-        driver.findElement(emailField).sendKeys(prop.getProperty("username"));
-        driver.findElement(passwordField).sendKeys(prop.getProperty("password"));
+        driver.findElement(emailField).sendKeys((String) readTestData.getUsername());
+        driver.findElement(passwordField).sendKeys((String) readTestData.getPassword());
         driver.findElement(loginBtn).click();
         System.out.println("Login is successful");
     }

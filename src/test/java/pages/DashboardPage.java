@@ -8,7 +8,7 @@ import static org.testng.Assert.assertEquals;
 
 public class DashboardPage {
 
-    private static WebDriver driver;
+    public static WebDriver driver;
     private static By loginAlert = By.xpath("//div[contains(text(),'Login Successfull')]");
 
     public boolean checkLoginAlertDisplay() {

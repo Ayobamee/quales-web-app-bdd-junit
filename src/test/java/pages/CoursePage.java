@@ -70,7 +70,6 @@ public class CoursePage {
             System.out.println("Test passed, user created course successfully");
         } else {
             System.out.println("Test failed, user could not create course successfully");
-//        assertTrue(checkCourseCreation());
         }
 
     }

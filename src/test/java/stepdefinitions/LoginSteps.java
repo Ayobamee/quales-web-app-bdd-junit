@@ -9,21 +9,16 @@ import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
 import utils.driverUtils.loadApp;
+import utils.filereader.readProperties;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
-import java.util.Properties;
+
 
 public class LoginSteps extends loadApp {
 
     private WebDriver driver;
     private LoginPage loginPage;
-    Properties prop = new Properties();
-    FileInputStream fis = new FileInputStream("src/test/java/resources/testdata.properties");
-
-    public LoginSteps() throws FileNotFoundException {
-    }
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page() throws IOException, InterruptedException {
@@ -34,11 +29,12 @@ public class LoginSteps extends loadApp {
     @When("I enter valid credentials")
     public void i_enter_valid_credentials() throws IOException {
 
-        prop.load(fis);
+        readProperties readTestData = new readProperties();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickSignInButton();
-        loginPage.enterUsername(prop.getProperty("username"));
-        loginPage.enterPassword(prop.getProperty("password"));
+        loginPage.enterUsername((String) readTestData.getUsername());
+        loginPage.enterPassword((String) readTestData.getPassword());
+
     }
 
     @When("click the login button")
