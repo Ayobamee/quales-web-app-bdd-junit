@@ -25,12 +25,13 @@ public class loadApp {
         if (prop.getProperty("browser").equals("chrome")) {
 
 
-            ChromeOptions option = new ChromeOptions();
-            option.addArguments("--remote-allow-origins=*");
+//            ChromeOptions option = new ChromeOptions();
+//            option.addArguments("--remote-allow-origins=*");
 //            option.setHeadless(true);
 
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(option);
+//            WebDriverManager.chromedriver().setup();
+            WebDriverManager.firefoxdriver().useMirror().setup();
+            driver = new FirefoxDriver();
 
 
         } else if (prop.getProperty("browser").equals("firefox")) {

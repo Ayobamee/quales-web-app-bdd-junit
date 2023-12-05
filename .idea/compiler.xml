@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="QualesApp" />
-        <module name="quales-web-app-bdd-junit" />
         <module name="quales-App" />
         <module name="edutech" />
         <module name="aloSim-web-bdd-junit" />
