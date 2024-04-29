@@ -23,18 +23,19 @@ public class loadApp {
         prop.load(fis);
 
         if (prop.getProperty("browser").equals("chrome")) {
+            // Print the version of the driver that was downloaded
+            System.out.println("Downloaded ChromeDriver version: " + WebDriverManager.chromedriver().getDownloadedDriverVersion());
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--window-size=1920,1080");
+            options.addArguments("--remote-allow-origins=*");
+            options.setHeadless(false);
+            driver = new ChromeDriver(options);
 
-
-//            ChromeOptions option = new ChromeOptions();
-//            option.addArguments("--remote-allow-origins=*");
-//            option.setHeadless(true);
-
-//            WebDriverManager.chromedriver().setup();
-            WebDriverManager.firefoxdriver().useMirror().setup();
-            driver = new FirefoxDriver();
 
 
         } else if (prop.getProperty("browser").equals("firefox")) {
+            WebDriverManager.firefoxdriver().useMirror().setup();
             driver = new FirefoxDriver();
 
         } else {
