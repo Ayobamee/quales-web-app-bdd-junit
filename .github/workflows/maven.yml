@@ -23,13 +23,14 @@ jobs:
           sudo apt-get install -y google-chrome-stable
 
       - name: Cache Maven packages
-        uses: actions/cache@v3
+        uses: actions/cache@v2
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build with Maven
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B package --file pom.xml
 
-    # Add any other necessary steps for your build and test
+      - name: Test with Maven
+        run: mvn -B test --file pom.xml
