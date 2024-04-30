@@ -32,13 +32,14 @@ public class loadApp {
             options.addArguments("--window-size=1920,1080");
             options.addArguments("--remote-allow-origins=*");
             options.setHeadless(false);
-            // This for it to run on C.I
+            //Config for C.I
             /*
-             * options.addArguments("--headless");
-             * options.addArguments("--disable-gpu");
-             * options.addArguments("--no-sandbox");
-             * options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");
+options.addArguments("--disable-gpu");
+options.addArguments("--no-sandbox");
+options.addArguments("--disable-dev-shm-usage");
              */
+
             driver = new ChromeDriver(options);
 
         } else if (prop.getProperty("browser").equals("firefox")) {
