@@ -19,23 +19,30 @@ public class loadApp {
 
     public WebDriver loadApp() throws IOException, InterruptedException {
         prop = new Properties();
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//utilities//datadriven.properties");
+        FileInputStream fis = new FileInputStream(
+                System.getProperty("user.dir") + "//utilities//datadriven.properties");
         prop.load(fis);
 
         if (prop.getProperty("browser").equals("chrome")) {
+            // Print the version of the driver that was downloaded
+            System.out.println(
+                    "Downloaded ChromeDriver version: " + WebDriverManager.chromedriver().getDownloadedDriverVersion());
+            WebDriverManager.chromedriver().setup();
+            // Create ChromeOptions instance to set preferences
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--window-size=1920,1080"); // Adjust the window size as needed
+            options.addArguments("--remote-allow-origins=*");
+            options.setHeadless(false);
+            // Initialize the WebDriver with ChromeOptions
+            driver = new ChromeDriver(options);
 
-
-//            ChromeOptions option = new ChromeOptions();
-//            option.addArguments("--remote-allow-origins=*");
-//            option.setHeadless(true);
-
-//            WebDriverManager.chromedriver().setup();
-            WebDriverManager.firefoxdriver().useMirror().setup();
-            driver = new FirefoxDriver();
-
+            //To make test run on firefox
+            // WebDriverManager.firefoxdriver().useMirror().setup();
+            // driver = new FirefoxDriver();
 
         } else if (prop.getProperty("browser").equals("firefox")) {
             driver = new FirefoxDriver();
+            
 
         } else {
 
@@ -52,7 +59,5 @@ public class loadApp {
 
         return driver;
     }
-
-
 
 }
