@@ -6,4 +6,4 @@ Feature: Delete Course Functionality
     Scenario: Delete course
         Given I am on the dashboard page with the intention to delete a course
         And I delete a course
-# Then My course should be deleted successfully
+        Then My course should be deleted successfully
