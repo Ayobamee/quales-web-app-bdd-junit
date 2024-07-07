@@ -82,7 +82,8 @@ public class CoursePage {
     }
 
     public void editCourse() {
-        driver.findElement(selectCourseForEdit).click();
+        driver.findElement(getCourse).click();
+        // driver.findElement(selectCourseForEdit).click();
         Dimension size = new Dimension(1536, 960);
         driver.manage().window().setSize(size);
         driver.findElement(editBtn).click();
