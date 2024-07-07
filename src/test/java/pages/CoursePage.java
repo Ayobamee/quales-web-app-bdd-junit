@@ -27,7 +27,7 @@ public class CoursePage {
 
     private static By courseCreationModal = By.xpath("//div[contains(text(),'Course created successfully')]");
 
-    private static By editCourseModal = By
+    private static By selectCourseForEdit = By
             .xpath("//div[@class='MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-1cg8cx6']");
     private static By getCourse = By.xpath("//p[text()='Selenium Description']");
 
@@ -35,7 +35,7 @@ public class CoursePage {
 
     private static By secondDeleteCourseBtn = By.xpath("(//button[text()='Delete']) [2]");
 
-    private static By updateCourse = By.xpath("//button[normalize-space()='Edit']");
+    private static By editBtn = By.xpath("//button[normalize-space()='Edit']");
 
     private static By updateCourseButton = By.xpath("//button[normalize-space()='Update Course']");
 
@@ -82,10 +82,10 @@ public class CoursePage {
     }
 
     public void editCourse() {
-        driver.findElement(editCourseModal).click();
+        driver.findElement(selectCourseForEdit).click();
         Dimension size = new Dimension(1536, 960);
         driver.manage().window().setSize(size);
-        driver.findElement(updateCourse).click();
+        driver.findElement(editBtn).click();
         WebElement updateCourseElement = driver.findElement(updateCourseButton);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", updateCourseElement);
