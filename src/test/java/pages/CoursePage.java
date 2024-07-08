@@ -31,6 +31,8 @@ public class CoursePage {
             .xpath("//div[@class='MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-1cg8cx6']");
     private static By getCourse = By.xpath("//p[text()='Selenium Description']");
 
+    private static By editedCourse = By.xpath("//p[text()='Selenium DescriptionEdit']");
+
     private static By deleteCourseBtn = By.xpath("//button[text()='Delete']");
 
     private static By secondDeleteCourseBtn = By.xpath("(//button[text()='Delete']) [2]");
@@ -83,10 +85,11 @@ public class CoursePage {
 
     public void editCourse() {
         driver.findElement(getCourse).click();
-        // driver.findElement(selectCourseForEdit).click();
         Dimension size = new Dimension(1536, 960);
         driver.manage().window().setSize(size);
         driver.findElement(editBtn).click();
+        driver.findElement(courseDescriptionInputField).clear();
+        driver.findElement(courseDescriptionInputField).sendKeys("Edit");
         WebElement updateCourseElement = driver.findElement(updateCourseButton);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", updateCourseElement);
@@ -109,7 +112,7 @@ public class CoursePage {
     }
 
     public void deleteCourse() {
-        driver.findElement(getCourse).click();
+        driver.findElement(editedCourse).click();
         driver.findElement(deleteCourseBtn).click();
         driver.findElement(secondDeleteCourseBtn).click();
 
